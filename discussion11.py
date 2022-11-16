@@ -66,12 +66,12 @@ def add_pets_from_json(filename, cur, conn):
         count+= 1
         name = entry['name']
         new = ("select id from Species where title = ?", (entry['species']))
-        species_id = new[0]
+        species_id = new[1]
         age = entry['age']
         cuteness = entry['cuteness']
         aggressiveness = entry['aggressiveness']
         cur.execute('insert into Patients (pet_id, name, species_id, age, cuteness, aggressiveness) values(?,?,?,?,?,?)',(count,name, species_id, age, cuteness, aggressiveness))
-        conn.commit
+        conn.commit()
 
 # TASK 3
 # CODE TO OUTPUT NON-AGGRESSIVE PETS
